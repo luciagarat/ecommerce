@@ -139,3 +139,100 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
+
+/* ENTREGA 1 - Pagina de productos */
+table {
+  background-color: rgba(255, 255, 255, 0.5);
+  margin-left: 130px;
+}
+tr, td {
+  width: 600px;
+  height: 550px;
+}
+.desc{
+  width: 500px;
+  margin-left: 90px;
+  margin-top: 10px;
+}
+.NOMBRE {
+  color: black;
+  text-align: center;
+  margin-top: 10%;
+  font-size: 200%;
+  text-transform: uppercase;
+  margin-left: 70px;
+}
+img.Imagn {
+  border-radius: 10px;
+  width: 500px;
+  margin-top: 10px;
+  margin-left: 90px;
+}
+div.precio {
+  color: rgba(0, 0, 0, 0.904);
+  font-weight:lighter;
+  font-size: 25px;
+  text-align: left;
+  margin-left: 90px;
+  margin-top: 7px;
+}
+div.cant {
+  color: dimgray;
+  font-size: small;
+  text-align: left;
+  margin-left: 90px;
+}
+
+/* ENTREGA 1 - Login */
+.back{
+  background-image: url("https://img.freepik.com/free-vector/paper-style-white-monochrome-background_23-2149017129.jpg?size=626&ext=jpg");
+  background-size: cover;
+  align-content: center;
+}
+.formulario {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Trebuchet MS' ;
+}
+#mail{
+  width: 280px;
+  height: 40px;
+  border-radius: 5px;
+  border-color: rgba(59, 59, 59, 0.89);
+  border-width: 1px;
+}
+#pass{
+  width: 280px;
+  height: 40px;
+  border-radius: 5px;
+  border-color: rgba(59, 59, 59, 0.89);
+  border-width: 1px;
+}
+#login{
+  width: 80px;
+  height: 30px;
+  border-radius: 6px;
+  background-color: rgba(7, 151, 177, 0.774);
+  color: aliceblue;
+  border-color: aliceblue;
+}
+#signin{
+  width: 80px;
+  height: 30px;
+  border-radius: 6px;
+  background-color: rgba(7, 151, 177, 0.774);
+  color: aliceblue;
+  border-color: aliceblue;
+}
+input.invalid {
+  outline: 1px solid rgba(4, 0, 248, 0.897);
+  background-color: rgba(110, 207, 224, 0.774);
+}
+
+
+
