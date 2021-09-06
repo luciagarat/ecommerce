@@ -35,16 +35,7 @@ function cargarDatos(array) {
         if (((minCount == undefined) || (minCount != undefined && parseInt(array[i].cost) >= minCount)) &&
             ((maxCount == undefined) || (maxCount != undefined && parseInt(array[i].cost) <= maxCount))) {
                 if(buscar == undefined || array[i].name.toLowerCase().includes(buscar) || array[i].description.toLowerCase().includes(buscar)){
-                    if (i <= 1){
-                        cargar += `
-                            <div class="tabla`+ k +`">
-                                <div class="NOMBRE"> ` + array[i].name + `<br> 
-                                </div> <img class = "Imagn" src="` + array[i].imgSrc + `"> <br>
-                                <div class="desc">` + array[i].description + `</div>
-                                <div class="precio"> ` + array[i].cost + " " + array[i].currency + `</div>
-                                <div class="cant"> Cantidad vendida: ` + array[i].soldCount + `</div>
-                            </div>
-                        `} else if (k==2){
+                        if (k==2){
                             cargar+=`<br>
                             <div class="tabla`+ k +`">
                             <div class="NOMBRE"> ` + array[i].name + `<br> 
@@ -71,13 +62,8 @@ function cargarDatos(array) {
     };
 };
 function sortAndShowProducts(criteria, array) {
-    currentCriteria = criteria;
 
-    if (array != undefined) {
-        currentArray = array;
-    }
-
-    currentArray = sortProducts(currentCriteria, currentArray);
+    currentArray = sortProducts(criteria, array);
 
     cargarDatos(currentArray);
 }
@@ -102,22 +88,15 @@ document.addEventListener("DOMContentLoaded", function (e) {
                 sortAndShowProducts("relevancia", productsArray)
             })
             document.getElementById("rangeFilterCount").addEventListener("click", function () {
-                //Obtengo el mínimo y máximo de los intervalos para filtrar por cantidad
-                //de productos por categoría.
+
                 minCount = document.getElementById("rangeFilterCountMin").value;
                 maxCount = document.getElementById("rangeFilterCountMax").value;
-
-                if ((minCount != undefined) && (minCount != "") && (parseInt(minCount)) >= 0) {
-                    minCount = parseInt(minCount);
-                }
-                else {
+                
+                if ((minCount < 0 || minCount == "")) {
                     minCount = undefined;
                 }
 
-                if ((maxCount != undefined) && (maxCount != "") && (parseInt(maxCount)) >= 0) {
-                    maxCount = parseInt(maxCount);
-                }
-                else {
+                if ((maxCount < 0 || maxCount == "")) {
                     maxCount = undefined;
                 }
 

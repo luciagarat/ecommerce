@@ -140,7 +140,7 @@ a.custom-card:hover {
   color: orange;
 }
 
-/* ENTREGA 1 - Pagina de productos */
+/* ENTREGA 1 y 2 - Pagina de productos */
 .tabla0 , .tabla1, .tabla2, .tabla3{
   display: table-cell;
   padding: 30px;
@@ -175,6 +175,9 @@ div.cant {
   font-size: 9pt;
   text-align: left;
   margin-left: 0px;
+}
+#busqueda{
+  width: 200%;
 }
 
 /* ENTREGA 1 - Login */
@@ -230,15 +233,8 @@ input.invalid {
 
 .btn-group{
   border-radius: 4px;
-  background-color: rgba(216, 211, 211, 0.89);
-  border-color: rgba(41, 41, 41, 0.89);
 }
 
 .dropdown-menu{
   text-align: center;
-}
-
-/* ENTREGA 2 */
-#busqueda{
-  width: 200%;
 }

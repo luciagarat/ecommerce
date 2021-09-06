@@ -39,6 +39,12 @@ var getJSONData = function(url){
         return result;
     });
 }
+function getUserName(){
+  let user = document.getElementById("mail").value;
+  let myStorage = window.localStorage;
+  myStorage.setItem('username', user);
+  window.location = "inicio.html";
+}
 function signOut() {
   let myStorage = window.localStorage;
   myStorage.removeItem("username");
