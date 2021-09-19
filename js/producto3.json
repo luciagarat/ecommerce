@@ -1,0 +1,16 @@
+{
+    "name": "Suzuki Celerio",
+    "description": "Entra en el espíritu de Suzuki Celerio y experimenta la sensación de libertad cada vez que estás detrás del volante. Vive nuevas experiencias arriba de un auto que lo tiene todo: eficiencia de combustible, diseño y comodidad. Si buscas entretenimiento sin sacrificar rendimiento, Celerio es para ti.",
+    "cost": 12500,
+    "currency": "USD",
+    "soldCount": 25,
+    "category": "Autos",
+    "images": [
+        "img/prod3.jpg",
+        "img/prod3_1.jpg",
+        "img/prod3_2.jpg",
+        "img/prod3_3.jpg",
+        "img/prod3_4.jpg"
+    ],
+    "relatedProducts": [1, 3]
+}

@@ -1,0 +1,16 @@
+{
+    "name": "Fiat Way",
+    "description": "Es un vehículo osado y singular en sus conceptos y sus líneas. Desde su llegada sorprendió por su diseño y funcionalidades. A su vez, sus molduras en las puertas y sus fenders le aportan robustez a su diseño sin quitarle elegancia. Mientras tanto, sus rieles portaequipaje en el techo le otorgan un look más agresivo con personalidad off road. Fiat Way está listo para recorrer cualquier camino.",
+    "cost": 14500,
+    "currency": "USD",
+    "soldCount": 52,
+    "category": "Autos",
+    "images": [
+        "img/prod2.jpg",
+        "img/prod2_1.jpg",
+        "img/prod2_2.jpg",
+        "img/prod2_3.jpg",
+        "img/prod2_4.jpg"
+    ],
+    "relatedProducts": [1, 3]
+}
