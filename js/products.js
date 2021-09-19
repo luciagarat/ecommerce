@@ -32,26 +32,29 @@ function cargarDatos(array) {
     let cargar = "";
     let k=0;
     for (let i = 0; i < array.length; i++) {
+        let j = i + 1;
         if (((minCount == undefined) || (minCount != undefined && parseInt(array[i].cost) >= minCount)) &&
             ((maxCount == undefined) || (maxCount != undefined && parseInt(array[i].cost) <= maxCount))) {
                 if(buscar == undefined || array[i].name.toLowerCase().includes(buscar) || array[i].description.toLowerCase().includes(buscar)){
                         if (k==2){
                             cargar+=`<br>
                             <div class="tabla`+ k +`">
-                            <div class="NOMBRE"> ` + array[i].name + `<br> 
-                            </div> <img class = "Imagn" src="` + array[i].imgSrc + `"> <br>
-                            <div class="desc">` + array[i].description + `</div>
-                            <div class="precio"> ` + array[i].cost + " " + array[i].currency + `</div>
-                            <div class="cant"> Cantidad vendida: ` + array[i].soldCount + `</div>
-                        </div>`
-                        }else { 
-                            cargar += `
-                            <div class="tabla`+ k +`">
-                                <div class="NOMBRE"> ` + array[i].name + `<br> 
-                                </div> <img class = "Imagn" src="` + array[i].imgSrc + `"> <br>
+                                <div class="NOMBRE"> ` + array[i].name + `<br></div> 
+                                <img class = "Imagn" src="` + array[i].imgSrc + `"> <br>
                                 <div class="desc">` + array[i].description + `</div>
                                 <div class="precio"> ` + array[i].cost + " " + array[i].currency + `</div>
                                 <div class="cant"> Cantidad vendida: ` + array[i].soldCount + `</div>
+                                <button id="`+ j +`" class="btn btn-dark btn-see-more">Ver producto</button>
+                            </div>`
+                        }else { 
+                            cargar += `
+                            <div class="tabla`+ k +`">
+                                <div class="NOMBRE"> ` + array[i].name + `<br></div>
+                                <img class = "Imagn" src="` + array[i].imgSrc + `"> <br>
+                                <div class="desc">` + array[i].description + `</div>
+                                <div class="precio"> ` + array[i].cost + " " + array[i].currency + `</div>
+                                <div class="cant"> Cantidad vendida: ` + array[i].soldCount + `</div>
+                                <button id="`+ j +`" class="btn btn-dark btn-see-more">Ver producto</button>
                             </div>
                         `};
                         k=k+1;
@@ -115,6 +118,22 @@ document.addEventListener("DOMContentLoaded", function (e) {
             buscar = document.getElementById("busqueda").value.toLowerCase();
             cargarDatos(productsArray)
             });
+            document.getElementById("1").addEventListener("click", function(){
+                localStorage.setItem("Id", this.id)
+                window.location = 'product-info.html';
+            })
+            document.getElementById("2").addEventListener("click", function(){
+                localStorage.setItem("Id", this.id)
+                window.location = 'product-info.html';
+            })
+            document.getElementById("3").addEventListener("click", function(){
+                localStorage.setItem("Id", this.id)
+                window.location = 'product-info.html';
+            })
+            document.getElementById("4").addEventListener("click", function(){
+                localStorage.setItem("Id", this.id)
+                window.location = 'product-info.html';
+            })
         };
 
     });

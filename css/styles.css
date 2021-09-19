@@ -149,6 +149,7 @@ a.custom-card:hover {
   width: 490px;
   margin-left: 0px;
   margin-top: 0px;
+  text-justify:distribute;
 }
 .NOMBRE {
   color: black;
@@ -178,6 +179,9 @@ div.cant {
 }
 #busqueda{
   width: 200%;
+}
+.btn-see-more{
+  margin-left: 375px;
 }
 
 /* ENTREGA 1 - Login */
@@ -237,4 +241,53 @@ input.invalid {
 
 .dropdown-menu{
   text-align: center;
+}
+
+/* ENTREGA 3 */
+.info{
+  padding: 50px;
+}
+.user{
+  font-family: sans-serif;
+  color: rgb(8, 57, 105);
+  size: 10pt;
+}
+.comments{
+  padding: 30px;
+  margin-left: 50px;
+}
+#comentar{
+  text-align: center;
+  padding: 50px;
+}
+.center{
+  margin-left: 580px;
+}
+.margn{
+  margin-left: 20px;
+}
+.margn-bttn{
+  margin-top: 95px;
+  margin-left: 400px;
+}
+.star-rating {
+  direction: rtl;
+  display: inline-block;
+}
+
+.star-rating input[type=radio] {
+  display: none
+}
+
+.star-rating label {
+  color: rgb(133, 142, 192);
+  font-size: 50px;
+  padding: 0;
+  cursor: pointer;
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label,
+.star-rating input[type=radio]:checked ~ label {
+  color: #ffbf00
 }
