@@ -1,6 +1,7 @@
 function mostrarInfo(array) {
     let producto = document.getElementById("product-info");
-    let a = localStorage.getItem("Id")
+    let imagenes = [];
+    imagenes = array.images;
   let mostrar = "";
   mostrar = `
     <br>
@@ -15,19 +16,19 @@ function mostrarInfo(array) {
     </ol>
     <div class="carousel-inner">
     <div class="carousel-item active">
-        <img class="d-block w-100" width="780px" src="img/prod`+ a +`.jpg">
+        <img class="d-block w-100" width="780px" src="`+ imagenes[0] +`">
     </div>
     <div class="carousel-item">
-        <img class="d-block w-100" width="780px" src="img/prod`+ a +`_1.jpg">
+        <img class="d-block w-100" width="780px" src="`+ imagenes[1] +`">
     </div>
     <div class="carousel-item">
-        <img class="d-block w-100" width="780px" src="img/prod`+ a +`_2.jpg">
+        <img class="d-block w-100" width="780px" src="`+ imagenes[2] +`">
     </div>
     <div class="carousel-item">
-        <img class="d-block w-100" width="780px" src="img/prod`+ a +`_3.jpg">
+        <img class="d-block w-100" width="780px" src="`+ imagenes[3] +`">
     </div>
     <div class="carousel-item">
-        <img class="d-block w-100" width="780px" src="img/prod`+ a +`_4.jpg">
+        <img class="d-block w-100" width="780px" src="`+ imagenes[4] +`">
     </div>        
     </div>
     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -108,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
     document.getElementById("sendComm").addEventListener("click", function(){
 
         let comentario = {
-            id_auto: JSON.parse(localStorage.getItem('Id')),
+            idProd: JSON.parse(localStorage.getItem('Id')),
             user: localStorage.getItem('username'),
             description: document.getElementById('newComment').value,
             dateTime: fecha,
