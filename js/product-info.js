@@ -44,10 +44,12 @@ function mostrarInfo(array) {
     <div class="NOMBRE">` + array.name + `<br></div>    
     <div class="desc"><p>` + array.description + `</p></div>
     <div class="precio"> ` + array.cost + " " + array.currency + `</div>
-    <div class="cant"> Cantidad vendida: ` + array.soldCount + `</div>
+    <div class="cant"> Cantidad vendida: ` + array.soldCount + ` </div>
     <button onclick="location.href='#'" class="btn btn-dark btn-see-more"><i class="fa fa-shopping-cart"></i> Comprar</button>
+    <br>
     </div>
-    </div>`;
+    </div>
+    <br>`;
 producto.innerHTML = mostrar;
 };
 function mostrarComments(array){
@@ -68,16 +70,39 @@ function mostrarComments(array){
         `</div>
         <br><br>`;
     }
+
     commentSection.innerHTML = comentarios;
 }
 
+function prodRel(array){  
+    let prodRelacionados
 
+    for(let i=0; i < array.relatedProducts.length; i++){
+    prodRelacionados= `<div class="contenedor"><input id="next" type="image" value="`+ array.relatedProducts[i]+1 +`" onclick=" numero()" class="relProd" src="`+ productos[array.relatedProducts[i]].imgSrc +`"> <br> `+ productos[array.relatedProducts[i]].name + `</div>`;
+    document.getElementById("rel-prod").innerHTML +=prodRelacionados    
+    };
+
+}
+function numero(){
+    let pp = document.getElementById("next").value;
+    localStorage.setItem("Id", pp);
+    window.location = "product-info.html"
+}
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
+//elementos HTML presentes.  
 document.addEventListener("DOMContentLoaded", function (e) {
     let num = localStorage.getItem("Id");
     let Url;
+
+    getJSONData(PRODUCTS_URL).then(function (resultObj) {
+        if (resultObj.status === "ok") {
+            productos = resultObj.data;
+        }
+        else{
+            throw Error(resultObj.statusText)
+        }
+    });
     if(num === "1"){
        Url = PRODUCT_INFO_URL1;
     }else if(num === "2"){
@@ -91,6 +116,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
         if (resultObj.status === "ok") {
             productInfo = resultObj.data;
             mostrarInfo(productInfo)
+            prodRel(productInfo)   
         }
         else{
             throw Error(resultObj.statusText)

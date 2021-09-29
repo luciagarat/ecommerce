@@ -118,6 +118,8 @@ document.addEventListener("DOMContentLoaded", function (e) {
             buscar = document.getElementById("busqueda").value.toLowerCase();
             cargarDatos(productsArray)
             });
+
+            //ENTREGA 3 
             document.getElementById("1").addEventListener("click", function(){
                 localStorage.setItem("Id", this.id)
                 window.location = 'product-info.html';

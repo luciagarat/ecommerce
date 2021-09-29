@@ -6,6 +6,10 @@ function getRating() {
         }
     }
 }
+
+//Función que se ejecuta una vez que se haya lanzado el evento de
+//que el documento se encuentra cargado, es decir, se encuentran todos los
+//elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
     let rating = document.getElementById("stars");
     let estrellas = "";
@@ -41,9 +45,11 @@ document.addEventListener("DOMContentLoaded", function(e){
     rating.innerHTML += estrellas;
 });
 
+
+// AUXILIAR PARA MOSTRAR LA FECHA Y HORA EN EL MISMO FORMATO QUE LOS OTROS COMENTARIOS
 let date= new Date();
-let dia = date.getDay();
-let mes = date.getMonth();
+let dia = date.getDate();
+let mes = date.getMonth() +1;      
 let anio = date.getFullYear();
 let hora = date.getHours();
 let minutos = date.getMinutes();

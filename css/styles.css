@@ -291,3 +291,13 @@ input.invalid {
 .star-rating input[type=radio]:checked ~ label {
   color: #ffbf00
 }
+/*ENTREGA 4*/ 
+.contenedor{
+  float:right;
+  margin-right: 30px;
+  text-align: center;
+}
+.relProd{
+  width: 200px;
+  border-radius: 4px;
+}

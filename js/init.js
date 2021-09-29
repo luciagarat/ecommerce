@@ -66,8 +66,7 @@ document.addEventListener("DOMContentLoaded", function(e){
  </button>
  <ul class="dropdown-menu">
    <li><a href="#">Perfil</a></li>
-   <li><a href="#">Wishlist</a></li>
-   <li><a href="#">Compras</a></li>
+   <li><a href="#">Carrito</a></li>
    <li><hr></li>
    <li><a href="#" onclick="signOut()">Cerrar Sesión</a></li>
  </ul>`
