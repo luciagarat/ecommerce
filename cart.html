@@ -11,6 +11,7 @@
 
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+  <link href="css/font-awesome.min.css" rel="stylesheet">
 
   <style>
     .bd-placeholder-img {
@@ -43,12 +44,51 @@
       <div class="btn-group" role="group" id="userOptions"></div>
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 5 (Fecha de entrega: 17/10/2021) y Entrega 7 (Fecha de entrega: 14/11/2021).</p>
+  <div class="row">
+    <div id="carrito" class="container p-5 col-8">
+      <div class="row">
+        <div class="col-md-12 col-lg-12 col-xl-12 col-xxl-12 ml-1 row font-weight-bold bg-danger text-white py-2">
+          Detalles del producto
+        </div>
+      </div>
+    </div>
+    <div id="envio" class="col-3 container py-5 mt-5">
+      <div class="text-center font-weight-bold border border-danger">Importe total:
+        <div id="total" class="container text-center font-weight-bolder"></div>
+      </div>
       <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+      <div class="font-weight-light">Direccion</div>
+      <br>
+      <div class="row">
+        <input type="text" placeholder="Calle, numero, esquina" style="height: 22pt;" >
+        <div class="form-group col-md-4">
+          <select id="inputState" class="form-control" style="height: 22pt;">
+            <option selected>Pais</option>
+            <option>Argentina</option>
+            <option>Brasil</option>
+            <option>Chile</option>
+            <option>Paraguay</option>
+            <option>Peru</option>
+            <option>Uruguay</option>
+          </select>
+        </div>
+      </div>
+      <div class="font-weight-light">Tipo de envio</div>
+      <div class="ml-1">
+        <input type="radio" name="envio">Premium (2-5 días)</a> <br>
+        <input type="radio" name="envio"> Express (5-8 días) <br>
+        <input type="radio" name="envio">Standard (12 a 15 días)
+      </div>
+      <hr>
+      <div class="font-weight-light">Tipo de pago</div>
+      <div class="ml-1">
+        <input type="radio" name="pago">Tarjeta <br>
+        <input type="radio" name="pago"> Transferencia Bancaria
+      </div>
+      <br>
+      <div class="d-flex justify-content-end">
+        <button type="button" class="btn btn-danger">Finalizar compra</button>
+      </div>
     </div>
   </div>
   <div id="spinner-wrapper">

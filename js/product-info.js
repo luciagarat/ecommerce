@@ -6,48 +6,50 @@ function mostrarInfo(array) {
   mostrar = `
     <br>
     <div class="row">
-    <div id="carouselExampleIndicators" class="carousel slide w-50" data-ride="carousel">
-    <ol class="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
-    </ol>
-    <div class="carousel-inner">
-    <div class="carousel-item active">
-        <img class="d-block w-100" width="780px" src="`+ imagenes[0] +`">
-    </div>
-    <div class="carousel-item">
-        <img class="d-block w-100" width="780px" src="`+ imagenes[1] +`">
-    </div>
-    <div class="carousel-item">
-        <img class="d-block w-100" width="780px" src="`+ imagenes[2] +`">
-    </div>
-    <div class="carousel-item">
-        <img class="d-block w-100" width="780px" src="`+ imagenes[3] +`">
-    </div>
-    <div class="carousel-item">
-        <img class="d-block w-100" width="780px" src="`+ imagenes[4] +`">
-    </div>        
-    </div>
-    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
-    </div>
-    <div class="info">
-    <div class="NOMBRE">` + array.name + `<br></div>    
-    <div class="desc"><p>` + array.description + `</p></div>
-    <div class="precio"> ` + array.cost + " " + array.currency + `</div>
-    <div class="cant"> Cantidad vendida: ` + array.soldCount + ` </div>
-    <button onclick="location.href='#'" class="btn btn-dark btn-see-more"><i class="fa fa-shopping-cart"></i> Comprar</button>
-    <br>
-    </div>
+        <div id="carouselExampleIndicators" class="carousel slide w-50 col-7" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+                </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="d-block w-100" width="780px" src="`+ imagenes[0] +`">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" width="780px" src="`+ imagenes[1] +`">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" width="780px" src="`+ imagenes[2] +`">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" width="780px" src="`+ imagenes[3] +`">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" width="780px" src="`+ imagenes[4] +`">
+                </div>        
+            </div>
+        
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>   
+        <div class="info col">
+            <div class="NOMBRE">` + array.name + `<br></div>    
+            <div class="desc"><p>` + array.description + `</p></div>
+            <div class="precio"> ` + array.cost + " " + array.currency + `</div>
+            <div class="cant"> Cantidad vendida: ` + array.soldCount + ` </div>
+            <button onclick="location.href='#'" class="btn btn-dark btn-see-more"><i class="fa fa-shopping-cart"></i> Comprar</button>
+            <br><br>
+            <div class="contenedor info" style="text-align: left">También te podría interesar: <br></div>
+        </div>
     </div>
     <br>`;
 producto.innerHTML = mostrar;
@@ -76,17 +78,22 @@ function mostrarComments(array){
 
 function prodRel(array){  
     let prodRelacionados
-
     for(let i=0; i < array.relatedProducts.length; i++){
-    prodRelacionados= `<div class="contenedor"><input id="next" type="image" value="`+ array.relatedProducts[i]+1 +`" onclick=" numero()" class="relProd" src="`+ productos[array.relatedProducts[i]].imgSrc +`"> <br> `+ productos[array.relatedProducts[i]].name + `</div>`;
+    prodRelacionados = `<div class="contenedor"><input id="next`+i+`" type="image" value="${array.relatedProducts[i]+1}" onclick=" posicionAId`+i+`()" class="relProd" src="`+ productos[array.relatedProducts[i]].imgSrc +`"> <br> `+ productos[array.relatedProducts[i]].name + `</div>`;
     document.getElementById("rel-prod").innerHTML +=prodRelacionados    
     };
 
 }
-function numero(){
-    let pp = document.getElementById("next").value;
+function posicionAId0(){
+    let pp = document.getElementById("next0").value;
     localStorage.setItem("Id", pp);
     window.location = "product-info.html"
+}
+function posicionAId1(){
+    let bb = document.getElementById("next1").value;
+    localStorage.setItem("Id", bb);
+    window.location = "product-info.html"
+
 }
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
@@ -95,14 +102,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
     let num = localStorage.getItem("Id");
     let Url;
 
-    getJSONData(PRODUCTS_URL).then(function (resultObj) {
-        if (resultObj.status === "ok") {
-            productos = resultObj.data;
-        }
-        else{
-            throw Error(resultObj.statusText)
-        }
-    });
     if(num === "1"){
        Url = PRODUCT_INFO_URL1;
     }else if(num === "2"){
@@ -115,8 +114,17 @@ document.addEventListener("DOMContentLoaded", function (e) {
     getJSONData(Url).then(function (resultObj) {
         if (resultObj.status === "ok") {
             productInfo = resultObj.data;
-            mostrarInfo(productInfo)
-            prodRel(productInfo)   
+
+            getJSONData(PRODUCTS_URL).then(function (resultObj) {
+                if (resultObj.status === "ok") {
+                    productos = resultObj.data;
+                    mostrarInfo(productInfo)
+                    prodRel(productInfo)  
+                }
+                else{
+                    throw Error(resultObj.statusText)
+                }
+            }); 
         }
         else{
             throw Error(resultObj.statusText)

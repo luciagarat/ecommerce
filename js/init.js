@@ -7,7 +7,7 @@ const PRODUCT_INFO_URL2 = "https://raw.githubusercontent.com/luciagarat/ecommerc
 const PRODUCT_INFO_URL3 = "https://raw.githubusercontent.com/luciagarat/ecommerce/main/js/producto3.json";
 const PRODUCT_INFO_URL4 = "https://raw.githubusercontent.com/luciagarat/ecommerce/main/js/producto4.json";
 const PRODUCT_INFO_COMMENTS_URL = "https://japdevdep.github.io/ecommerce-api/product/5678-comments.json";
-const CART_INFO_URL = "https://japdevdep.github.io/ecommerce-api/cart/987.json";
+const CART_INFO_URL = "https://japdevdep.github.io/ecommerce-api/cart/654.json";
 const CART_BUY_URL = "https://japdevdep.github.io/ecommerce-api/cart/buy.json";
 
 var showSpinner = function(){
@@ -65,9 +65,9 @@ document.addEventListener("DOMContentLoaded", function(e){
    <span class="caret"></span>`+ username +`
  </button>
  <ul class="dropdown-menu">
-   <li><a href="#">Perfil</a></li>
-   <li><a href="#">Carrito</a></li>
+   <li><a class="dropdown-item" href="my-profile.html">Perfil</a></li>
+   <li><a class="dropdown-item" href="cart.html">Carrito</a></li>
    <li><hr></li>
-   <li><a href="#" onclick="signOut()">Cerrar Sesión</a></li>
+   <li><a class="dropdown-item" href="#" onclick="signOut()">Cerrar Sesión</a></li>
  </ul>`
 });

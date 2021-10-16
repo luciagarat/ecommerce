@@ -245,7 +245,8 @@ input.invalid {
 
 /* ENTREGA 3 */
 .info{
-  padding: 50px;
+  float: right;
+ padding: 50px;
 }
 .user{
   font-family: sans-serif;
@@ -294,10 +295,39 @@ input.invalid {
 /*ENTREGA 4*/ 
 .contenedor{
   float:right;
+  margin-top: -40px;
   margin-right: 30px;
   text-align: center;
 }
 .relProd{
+  margin-top: 25px;
   width: 200px;
   border-radius: 4px;
+}
+#rel-prod{
+  margin-top: -100px;
+  margin-right: 30px;
+  text-align: center;
+}
+/* ENTREGA 5 */
+.btnMas {
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  text-align: center;
+  line-height: 1px;
+  font-size: 13pt;
+  border: 0.1px solid rgb(63, 62, 63);
+}
+.btnMen {
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  text-align: center;
+  line-height: 1.2px;
+  font-size: 13pt;
+  border: 0.1px solid rgb(63, 62, 63);
+}
+.quitar input[type=radio] {
+  display: none;
 }
