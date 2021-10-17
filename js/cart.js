@@ -8,28 +8,29 @@ function showCartInfo(array) {
         let precio = parseInt(array.articles[i].unitCost);
         subtot = cantidad * precio;
         info = `
-            <div id="elemento${i}" class="list-group-item">
-                <div  class="row">
+            <div id="elemento${i}" class="ml-2 list-group-item">
+                <div class="row ml-1">
                     <div class="col-2 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
                         <img src="${array.articles[i].src}" class="img-thumbnail" style="height:90%">
                     </div>
-                    <div class="col-8 col-md-2 col-lg-2 col-xl-2 col-xxl-2 mb-1">
+                    <div class="col-8 col-md-3 col-lg-3 col-xl-3 col-xxl-3 mb-1 font-weight-bold text-center">
                         ${array.articles[i].name}
+                        <br>
+                        <br>
+                        <div class="d-flex flex-row justify-content-center align-items-center">
+                            <button id="btnR${i}" class="btnMen" onclick="restar(${i}, ${precio})">-</button>
+                            <input id="quantity${i}" type="text" value=${cantidad} style="width:50px; height:20px" onchange="subtot( ${i}, ${precio})"
+                            class="form-control"><button id="btnS${i}" onclick="sumar(${i}, ${precio})" class="btnMas">+</button>
+                        </div>
                     </div>
-                    <div class="col-8 col-md-2 col-lg-2 col-xl-2 col-xxl-2 row">
-                        <button id="btnR${i}" class="btnMen" onclick="restar(${i}, ${precio})">-</button>
-                        <input id="quantity${i}" type="text" value=${cantidad} style="width:50px; height:20px" onchange="subtot( ${i}, ${precio})"
-                        class="form-control"><button id="btnS${i}" onclick="sumar(${i}, ${precio})" class="btnMas">+</button>
-                    </div>
-                    <div class="col-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2 mb-1">
+                    <div class="col-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2 text-center mt-5">
                             ${precio}  <div class="d-inline" >${array.articles[i].currency}</div>
                     </div>
-                    <div class="row col-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2 mb-1"
-                    >
+                    <div class="row col-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3 mb-3 d-flex justify-content-center mt-5">
                         <div id="Subtotal${i}" class="subtotales">${subtot}</div><div class="currency">${array.articles[i].currency}</div>
                     </div>
-                    <div class="col-1 col-md-1 col-lg-1 col-xl-1 col-xxl-1 mb-1">
-                        <i onclick="borrar(${i})" class="fa fa-trash"></i>
+                    <div class="col-1 col-md-1 col-lg-1 col-xl-1 col-xxl-1 text-right d-inline mt-5 quitar">
+                    <i onclick="borrar(${i})" class="fa fa-trash"></i>
                     </div>
                 </div>
             </div>`;         
@@ -83,7 +84,6 @@ function total(){
     }
     document.getElementById("total").innerHTML = "$" + total;
 }
-
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.

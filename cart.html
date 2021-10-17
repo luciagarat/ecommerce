@@ -45,49 +45,53 @@
     </div>
   </nav>
   <div class="row">
-    <div id="carrito" class="container p-5 col-8">
-      <div class="row">
-        <div class="col-md-12 col-lg-12 col-xl-12 col-xxl-12 ml-1 row font-weight-bold bg-danger text-white py-2">
-          Detalles del producto
-        </div>
+    <div id="carrito" class="container p-4 col-8">
+      <div class="col-md-12 col-lg-12 col-xl-12 col-xxl-12 mx-1 row font-weight-bolder text-danger pb-4 text-uppercase">
+        Detalles del Producto
+      </div>
+      <div class="col-md-12 col-lg-12 col-xl-12 col-xxl-12 ml-1 row font-weight-bold bg-danger text-white py-2">
+        <div class="col-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6"></div>
+        <div class="col-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2 font-weight-lighter ml-2" style="font-size: 11pt;">Precio por unidad</div>
+        <div class="col-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2 font-weight-lighter ml-5" style="font-size: 11pt;">Subtotal</div>
       </div>
     </div>
-    <div id="envio" class="col-3 container py-5 mt-5">
-      <div class="text-center font-weight-bold border border-danger">Importe total:
+    <div id="envio" class="col-3 container py-5 mt-5 mr-5">
+      <div class="text-center font-weight-bold border border-danger">Total:
         <div id="total" class="container text-center font-weight-bolder"></div>
       </div>
       <hr>
-      <div class="font-weight-light">Direccion</div>
-      <br>
-      <div class="row">
-        <input type="text" placeholder="Calle, numero, esquina" style="height: 22pt;" >
+      <div class="font-weight-light mb-1">Dirección</div>
+      <div class="row ml-1">
+        <input type="text" placeholder="Calle, numero, esquina" style="height: 25pt;">
         <div class="form-group col-md-4">
-          <select id="inputState" class="form-control" style="height: 22pt;">
+          <select id="inputState" class="form-control" style="height: 25pt; width: 150px;">
             <option selected>Pais</option>
             <option>Argentina</option>
             <option>Brasil</option>
             <option>Chile</option>
             <option>Paraguay</option>
-            <option>Peru</option>
+            <option>Perú</option>
             <option>Uruguay</option>
           </select>
         </div>
       </div>
-      <div class="font-weight-light">Tipo de envio</div>
+      <div class="font-weight-light">Tipo de envío</div>
       <div class="ml-1">
-        <input type="radio" name="envio">Premium (2-5 días)</a> <br>
+        <input type="radio" name="envio"> Premium (2-5 días) <br>
         <input type="radio" name="envio"> Express (5-8 días) <br>
-        <input type="radio" name="envio">Standard (12 a 15 días)
+        <input type="radio" name="envio"> Standard (12 a 15 días)
       </div>
       <hr>
       <div class="font-weight-light">Tipo de pago</div>
       <div class="ml-1">
-        <input type="radio" name="pago">Tarjeta <br>
+        <input type="radio" name="pago"> Tarjeta <br>
         <input type="radio" name="pago"> Transferencia Bancaria
       </div>
       <br>
       <div class="d-flex justify-content-end">
-        <button type="button" class="btn btn-danger">Finalizar compra</button>
+        <button type="button" class="btn corder border-danger" onclick="window.location.href='inicio.html';">Seguir comprando</button>
+        <div class="p-2"></div>
+        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#mod">Finalizar compra</button>
       </div>
     </div>
   </div>
@@ -105,5 +109,23 @@
   <script src="js/init.js"></script>
   <script src="js/cart.js"></script>
 </body>
-
+<div id="mod" class="modal" tabindex="-1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body d-flex d-inline">
+        <i class="fa fa-check-circle" style="color:seagreen; font-size: 30pt;"></i>
+        <div class="p-2"></div>
+        <h2> ¡Compra realizada con éxito!</h2>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Ok</button>
+      </div>
+    </div>
+  </div>
+</div>
 </html>
