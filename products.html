@@ -16,18 +16,18 @@
   <body>
     <nav class="site-header sticky-top py-1 bg-dark">
       <div class="container d-flex flex-column flex-md-row justify-content-between">
-        <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
+        <a class="py-2 d-none d-md-inline-block text-white" onclick="registrado()">Inicio</a>
         <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
         <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
         <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-        <div class="btn-group btn-light" role="group" id="userOptions"></div>
+        <div class="btn-group btn-light d-none d-md-inline-block" role="group" id="userOptions"></div>
       </div>
     </nav>
     <br>
     <div class="container">
       <div class="row">
           <div class="row container p-0 m-0">
-              <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
+              <div class="btn-group btn-group-toggle mb-4 col-12 col-md-5" data-toggle="buttons">
                   <label class="btn btn-light active" id="sortAsc" >
                       <input type="radio" name="options" autocomplete="off" checked><i class="fas fa-long-arrow-alt-up"></i><i class="fas fa-dollar-sign"></i>
                   </label>
@@ -38,41 +38,52 @@
                       <input type="radio" name="options" autocomplete="off"><i class="fas fa-sort-amount-down mr-1"></i>Más vendidos
                   </label>
               </div>
-            <div class="col-3 p-0">
-              <p class="font-weight-normal text-right my-2">Precio:</p>
+            <div class="col-2 col-md-1 p-0">
+              <p class="font-weight-normal text-right my-2 ml-3">Precio:</p>
             </div>
-            <div class="col">
+            <div class="col-4 col-md-2">
               <input class="form-control" type="number" placeholder="min." id="rangeFilterCountMin" min="0">
             </div>
-            <div class="col">
+            <div class="col-4 col-md-2">
               <input class="form-control" type="number" placeholder="máx." id="rangeFilterCountMax" min="0">
             </div>
-            <div class="col-3 p-0">
+            <div class="col-12 col-md-2">
               <div class="btn-group" role="group">
                 <button class="btn btn-light btn-block" id="rangeFilterCount"><i class="fas fa-search-dollar"></i>Filtrar</button>
                 <button class="btn btn-link btn-sm " id="clearRangeFilter" ><i class="fas fa-eraser mr-1"></i>Borrar</button>
               </div>
             </div>
           </div>
-          <div class="buscador">
+          <div class="buscador ml-3">
             <input type="search" class="form-control" id="busqueda" placeholder="Buscar...">
           </div>
       </div>
     <hr>
-    <div id="container p-5"> 
+    <div id="productos" class="row "> 
     </div>
-    <footer class="text-muted bg-light">
+    <footer class="text-muted bg-light mt-5">
       <div class="container">
-        <p class="float-right">
-          <a href="#">Volver arriba</a>
-        </p>
         <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
         <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
       </div>
     </footer>
-    <div id="spinner-wrapper"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div>
+    <div class="alert fade alert-success" role="alert" id="alertResult">
+      <span id="resultSpan"></span>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div id="spinner-wrapper">
+      <div class="lds-ring">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/dropzone.js"></script>
     <script src="js/init.js"></script>
     <script src="js/products.js"></script>
   </body>

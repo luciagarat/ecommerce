@@ -36,22 +36,70 @@
 <body>
   <nav class="site-header sticky-top py-1 bg-dark">
     <div class="container d-flex flex-column flex-md-row justify-content-between">
-      <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
+      <a class="py-2 d-none d-md-inline-block text-white" onclick="registrado()">Inicio</a>
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <div class="btn-group" role="group" id="userOptions"></div>
+      <div class="btn-group d-md-inline-block" role="group" id="userOptions"></div>
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 6 (Fecha de entrega: 31/10/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+
+    <div id="profile" class="container p-5">
+      <img id="pfp" class="mx-auto d-block" style="width: 30%;"
+        src='https://avataaars.io/?avatarStyle=Circle&topType=LongHairCurly&accessoriesType=Blank&hairColor=Black&facialHairType=Blank&clotheType=GraphicShirt&clotheColor=PastelRed&graphicType=Diamond&eyeType=Default&eyebrowType=DefaultNatural&mouthType=Smile&skinColor=Pale' />
+      <form class="needs-validation p-5" novalidate>
+        <div class="form-row d-flex justify-content-center">
+          <div class="col-12 col-md-4 mb-3">
+            <label for="input01">Nombre</label>
+            <input type="text" class="form-control" id="input01" value="" name="inputs" required>
+            <div class="valid-feedback">
+              Looks good!
+            </div>
+          </div>
+          <div class="col-12 col-md-4 mb-3">
+            <label for="input02">Apellido</label>
+            <input type="text" class="form-control" id="input02" name="inputs" value="" required>
+            <div class="valid-feedback">
+              Looks good!
+            </div>
+          </div>
+        </div>
+        <div class="form-row d-flex justify-content-center">
+          <div class="col-12 col-md-4 mb-3">
+            <label for="input03">Edad</label>
+            <input type="number" class="form-control" id="input03" name="inputs" min="18" max="150" required>
+            <div class="invalid-feedback">
+              Por favor ingrese un numero valido.
+            </div>
+          </div>
+          <div class="col-12 col-md-4 mb-3">
+            <label for="input04">Contacto</label>
+            <input type="text" class="form-control" id="input04" name="inputs" required>
+            <div class="invalid-feedback">
+              Por favor ingrese su numero de contacto
+            </div>
+          </div>
+        </div>
+        <div class="form-row d-flex justify-content-center">
+          <div class="col-12 col-md-4 mb-3">
+            <label for="input05" class="text-center">Email</label>
+            <input type="email" class="form-control" id="input05" value="" name="inputs" required>
+            <div class="invalid-feedback">
+              Por favor ingrese su email
+            </div>
+          </div>
+        </div>
+        <div class="d-flex float-right mt-4"  style="margin-right: 15%;">
+        <button class="d-none" type="submit" id="btnSubmit">Guardar cambios</button>
+        </div>
+      </form>
+      <button class="btn btn-info color-white float-right" style="margin-right: 20%;" onclick="editar()"
+        id="btnEdit">Editar</button>
     </div>
   </div>
-  <footer class="text-muted bg-light">
+
+  <!------------------------------------------------------------------------------------------------------------------------------------------->
+  <footer class="text-muted bg-light mt-5">
     <div class="container">
       <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
       <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>

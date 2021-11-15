@@ -28,36 +28,22 @@ function sortProducts(criteria, array) {
 }
 
 function cargarDatos(array) {
-    let tabla = document.getElementById("container p-5");
+    let tabla = document.getElementById("productos");
     let cargar = "";
-    let k=0;
     for (let i = 0; i < array.length; i++) {
         let j = i + 1;
         if (((minCount == undefined) || (minCount != undefined && parseInt(array[i].cost) >= minCount)) &&
             ((maxCount == undefined) || (maxCount != undefined && parseInt(array[i].cost) <= maxCount))) {
                 if(buscar == undefined || array[i].name.toLowerCase().includes(buscar) || array[i].description.toLowerCase().includes(buscar)){
-                        if (k==2){
-                            cargar+=`<br>
-                            <div class="tabla`+ k +`">
-                                <div class="NOMBRE"> ` + array[i].name + `<br></div> 
-                                <img class = "Imagn" src="` + array[i].imgSrc + `"> <br>
-                                <div class="desc">` + array[i].description + `</div>
-                                <div class="precio"> ` + array[i].cost + " " + array[i].currency + `</div>
-                                <div class="cant"> Cantidad vendida: ` + array[i].soldCount + `</div>
-                                <button id="`+ j +`" class="btn btn-dark btn-see-more">Ver producto</button>
-                            </div>`
-                        }else { 
-                            cargar += `
-                            <div class="tabla`+ k +`">
-                                <div class="NOMBRE"> ` + array[i].name + `<br></div>
-                                <img class = "Imagn" src="` + array[i].imgSrc + `"> <br>
-                                <div class="desc">` + array[i].description + `</div>
-                                <div class="precio"> ` + array[i].cost + " " + array[i].currency + `</div>
-                                <div class="cant"> Cantidad vendida: ` + array[i].soldCount + `</div>
-                                <button id="`+ j +`" class="btn btn-dark btn-see-more">Ver producto</button>
-                            </div>
-                        `};
-                        k=k+1;
+                            cargar+=`
+                                    <div class="p-4 col-12 col-md-6">
+                                            <div class="NOMBRE"> ` + array[i].name + `</div> 
+                                            <img class = "Imagn float-center" src="` + array[i].imgSrc + `"> <br>
+                                            <div class="desc">` + array[i].description + `</div>
+                                            <div class="precio"> ` + array[i].cost + " " + array[i].currency + `</div>
+                                            <div class="cant"> Cantidad vendida: ` + array[i].soldCount + `</div>
+                                            <button id="`+ j +`" class="btn btn-dark btn-see-more float-right">Ver producto</button>
+                                    </div>`
                     };
             tabla.innerHTML = cargar;
 

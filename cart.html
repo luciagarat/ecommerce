@@ -51,50 +51,95 @@
       </div>
       <div class="col-md-12 col-lg-12 col-xl-12 col-xxl-12 ml-1 row font-weight-bold bg-danger text-white py-2">
         <div class="col-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6"></div>
-        <div class="col-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2 font-weight-lighter ml-2" style="font-size: 11pt;">Precio por unidad</div>
-        <div class="col-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2 font-weight-lighter ml-5" style="font-size: 11pt;">Subtotal</div>
+        <div class="col-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2 font-weight-lighter ml-2" style="font-size: 11pt;">Precio
+          por unidad</div>
+        <div class="col-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2 font-weight-lighter ml-5" style="font-size: 11pt;">
+          Costo</div>
       </div>
     </div>
     <div id="envio" class="col-3 container py-5 mt-5 mr-5">
-      <div class="text-center font-weight-bold border border-danger">Total:
-        <div id="total" class="container text-center font-weight-bolder"></div>
-      </div>
-      <hr>
-      <div class="font-weight-light mb-1">Dirección</div>
-      <div class="row ml-1">
-        <input type="text" placeholder="Calle, numero, esquina" style="height: 25pt;">
-        <div class="form-group col-md-4">
-          <select id="inputState" class="form-control" style="height: 25pt; width: 150px;">
-            <option selected>Pais</option>
-            <option>Argentina</option>
-            <option>Brasil</option>
-            <option>Chile</option>
-            <option>Paraguay</option>
-            <option>Perú</option>
-            <option>Uruguay</option>
-          </select>
+      <div class="text-center font-weight-bold border border-dark">Subtotal:
+        <div class="d-flex d-inline container" style="margin-left: 120px;">
+          <div class="font-weight-bold">$</div>
+          <div id="total" class="font-weight-bold"></div>
         </div>
       </div>
-      <div class="font-weight-light">Tipo de envío</div>
-      <div class="ml-1">
-        <input type="radio" name="envio"> Premium (2-5 días) <br>
-        <input type="radio" name="envio"> Express (5-8 días) <br>
-        <input type="radio" name="envio"> Standard (12 a 15 días)
+      <br>
+      <div class="border border-danger">
+        <div class="text-center font-weight-bold ">Aporte total: </div>
+        <div class="d-flex d-inline container" style="margin-left: 120px;">
+          <div class="font-weight-bolder">$</div>
+          <div id="costoCompleto" class="text-center font-weight-bolder"></div>
+        </div>
       </div>
       <hr>
-      <div class="font-weight-light">Tipo de pago</div>
-      <div class="ml-1">
-        <input type="radio" name="pago"> Tarjeta <br>
-        <input type="radio" name="pago"> Transferencia Bancaria
-      </div>
-      <br>
-      <div class="d-flex justify-content-end">
-        <button type="button" class="btn corder border-danger" onclick="window.location.href='inicio.html';">Seguir comprando</button>
-        <div class="p-2"></div>
-        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#mod">Finalizar compra</button>
-      </div>
+      <form class="needs-validation" novalidate>
+        <div class="row ml-1">
+          <div class="form-row">
+            <div class="col-md-6 mb-3">
+              <input type="text" class="form-control" id="validationCustom03" placeholder="Calle, número, esquina."
+                style="height: 25pt; width: 150px;" required>
+              <div class="invalid-feedback">
+                Por favor ingrese una dirección.
+              </div>
+            </div>
+            <div class="form-group col-md-4">
+              <select id="inputState" class="form-control" style="height: 25pt; width: 150px;" required>
+                <option selected disabled value="">Pais</option>
+                <option>Argentina</option>
+                <option>Brasil</option>
+                <option>Chile</option>
+                <option>Paraguay</option>
+                <option>Perú</option>
+                <option>Uruguay</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="font-weight-light">Tipo de pago</div>
+        <div class="custom-control custom-radio ">
+          <input type="radio" class="custom-control-input" data-toggle="modal" data-target="#mod1"
+            id="customControlValidation1" name="Pago" required>
+          <label class="custom-control-label" for="customControlValidation1">Tarjeta</label>
+        </div>
+        <div class="custom-control custom-radio mb-3">
+          <input type="radio" data-toggle="modal" data-target="#mod2" class="custom-control-input"
+            id="customControlValidation2" name="Pago" required>
+          <label class="custom-control-label" for="customControlValidation2">Transferencia</label>
+          <div class="invalid-feedback">Por favor seleccione una forma de pago.</div>
+        </div>
+        <hr>
+        <div class="font-weight-light">Tipo de envío</div>
+        <div class="custom-control custom-radio">
+          <input type="radio" class="custom-control-input" value="0.15" id="envio0" name="envio" onclick="shipping()"
+            required>
+          <label class="custom-control-label" for="envio0">Premium (2-5 días) <small>Costo del 15%
+              sobre el subtotal.</small></label>
+        </div>
+        <div class="custom-control custom-radio mb-3">
+          <input type="radio" class="custom-control-input" value="0.07" id="envio1" name="envio" onclick="shipping()"
+            required>
+          <label class="custom-control-label" for="envio1">Express (5-8 días) <small>Costo del 7%
+              sobre el subtotal.</small></label>
+        </div>
+        <div class="custom-control custom-radio">
+          <input type="radio" class="custom-control-input" value="0.05" id="envio2" name="envio" onclick="shipping()"
+            required>
+          <label class="custom-control-label" for="envio2">Standard (12-15 días) <small>Costo del 5%
+              sobre el subtotal.</small></label>
+          <div class="invalid-feedback">Por favor seleccione metodo de envío.</div>
+        </div>
+        <br>
+        <div class="d-flex justify-content-end">
+          <button type="button" class="btn corder border-danger" onclick="window.location.href='inicio.html';">Seguir
+            comprando</button>
+          <div class="p-2"></div>
+          <input type="submit" class="btn btn-danger" id="finalizar" value="Finalizar Compra">
+        </div>
+      </form>
     </div>
   </div>
+
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>
@@ -109,6 +154,61 @@
   <script src="js/init.js"></script>
   <script src="js/cart.js"></script>
 </body>
+<div class="modal fade" id="mod1" tabindex="-1" aria-labelledby="Forma-De-Pago" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modal1Label">Seleccione de tarjeta de crédito</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body container p-5">
+        <div id="campos" class="needs-validation">
+          <div class="row">
+            <div class="col-12 col-md-6">
+              <label for="titular" class="col-12 col-md-6">Nombre del titular</label>
+              <input type="text" class="mb-2" id="titular" name="cardname" placeholder="John More Doe">
+              <div id="feedbackTitular" class="d-none sacar text-danger col-12">Por favor ingrese el nombre del titular
+                de la tarjeta.</div>
+            </div>
+            <div class="col-12 col-md-6">
+              <label for="nro" class="col-12 col-md-6">Número de tarjeta</label>
+              <input type="text" class="mb-2" id="nro" name="cardnumber" maxlength="16" placeholder="1111-2222-3333-4444">
+              <div id="feedbackNro" class="d-none sacar text-danger col-12">Por favor ingrese el número de la tarjeta.
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-md-7">
+              <label for="expmonth" class="col-12 col-md-7">Fecha de expiracion</label>
+              <div class="row">
+                <input type="text" class="col-12 col-md-4 mr-3 mb-2" id="expmonth" name="exp" placeholder="September">
+                <input type="text" id="expyear" class="col-md-4 col-12 mb-2" name="expyear" placeholder="2018">
+              </div>
+              <div id="feedbackFecha" class="d-none sacar text-danger col-6">Por favor ingrese la fecha de vencimiento
+                de la tarjeta.</div>
+            </div>
+            <div class="col-12 col-md-5">
+              <label class="col-12 col-md-5" for="cvv">CVV</label>
+              <div class="row">
+              <input type="text" class="col-12 col-md-3" id="cvv" name="cvv" placeholder="352" maxlength="3">
+              </div>
+              <div id="feedbackCVV" class="d-none sacar text-danger mb-2">Por favor ingrese el código de seguridad de la
+                tarjeta.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+      <button id="btnSave" class="btn btn-group btn-info">Save</button>
+      <button id="btnClose" type="button" class="d-none" data-dismiss="modal">Ok</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div id="mod" class="modal" tabindex="-1">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
@@ -123,9 +223,39 @@
         <h2> ¡Compra realizada con éxito!</h2>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Ok</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="window.location.replace('inicio.html')">Ok</button>
       </div>
     </div>
   </div>
 </div>
+
+<div id="mod2" class="modal" tabindex="-1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modal1Label">Transferencia Bancaria</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="col-12">Ingrese cuenta bancaria</div>
+          <input class="form-control" type="text" id="transfer" value=""  required>
+        <div id="feedbackCuenta" class="d-none text-danger">Por favor, ingrese el numero de su cuenta bancaria</div>
+        <br>
+        <div class="">Suba el comprobante de transferencia</div>
+        <div class="custom-file">
+          <input type="file" class="custom-file-input" id="comprobante" required>
+          <label class="custom-file-label" for="comprobante">Elegir archivo...</label>
+        </div>
+        <div id="feedbackComprobante" class="d-none text-danger">Poe favor, suba el comprobante de la transferencia.</div>
+      </div>
+      <div class="modal-footer">
+        <button id="btnTransfer" type="button" class="btn btn-danger">Submit</button>
+        <button id="btnOKTransfer" type="button" class="d-none btn btn-danger" data-dismiss="modal">Ok</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 </html>

@@ -45,19 +45,26 @@ var getJSONData = function(url){
 function getUserName(){
   let user = document.getElementById("mail").value;
   let myStorage = window.localStorage;
-  myStorage.setItem('username', user);
+  myStorage.setItem('email', user);
   window.location = "inicio.html";
 }
 function signOut() {
   let myStorage = window.localStorage;
-  myStorage.removeItem("username");
+  myStorage.removeItem("email");
   window.location.href = "index.html";
+}
+function registrado(){
+  if(localStorage.getItem("email") == null){
+    window.location= "index.html";
+  } else {
+    window.location = "inicio.html";
+  }
 }
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
-   let username = window.localStorage.getItem("username");
+   let username = window.localStorage.getItem("email");
    let userOptions = document.getElementById("userOptions");
 
    userOptions.innerHTML = `<button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
